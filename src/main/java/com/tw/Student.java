@@ -65,12 +65,14 @@ public class Student {
 
     public String introduce() {
         String scores = disciplines.stream()
-                .map(discipline -> allDisciplineScore.get(discipline) % 1.0 == 0
-                        ? String.valueOf(allDisciplineScore.get(discipline).longValue())
-                        : String.valueOf(allDisciplineScore.get(discipline)))
+                .map(discipline -> remove0AferDecimalPoint(allDisciplineScore.get(discipline)))
                 .collect(Collectors.joining("|"));
-        String averageScoreStr = averageScore % 1.0 == 0 ? String.valueOf(averageScore.longValue()) : String.valueOf(averageScore);
-        String totalScoreStr = totalScore % 1.0 == 0 ? String.valueOf(totalScore.longValue()) : String.valueOf(totalScore);
+        String averageScoreStr = remove0AferDecimalPoint(averageScore);
+        String totalScoreStr = remove0AferDecimalPoint(totalScore);
         return name + "|" + scores + "|" + averageScoreStr + "|" + totalScoreStr;
+    }
+
+    private String remove0AferDecimalPoint(Double totalScore) {
+        return totalScore % 1.0 == 0 ? String.valueOf(totalScore.longValue()) : String.valueOf(totalScore);
     }
 }
