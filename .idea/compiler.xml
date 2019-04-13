@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="student-grade-command-pattern-java-2019-1-8-2-59-10-727.main" target="1.8" />
       <module name="student-grade-command-pattern-java-2019-1-8-2-59-10-727.test" target="1.8" />
+      <module name="tw-Dev-homework2-of-the-third-week.main" target="1.8" />
+      <module name="tw-Dev-homework2-of-the-third-week.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
