@@ -1,4 +1,4 @@
-package com.tw;
+package com.tw.core;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -6,15 +6,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Student {
-    private int id;
+    private String id;
     private String name;
     private HashMap<String, Double> allDisciplineScore;
     private Double averageScore;
     private Double totalScore;
     public List<String> disciplines = Arrays.asList("数学", "语文", "英语", "编程");
 
+    public Student() {
+    }
 
-    public Student(int id, String name, HashMap allDisciplineScore) {
+    public Student(String id, String name, HashMap allDisciplineScore) {
         this.id = id;
         this.name = name;
         this.allDisciplineScore = allDisciplineScore;
@@ -26,7 +28,7 @@ public class Student {
         return totalScore;
     }
 
-    private void setTotalScore() {
+    public void setTotalScore() {
         this.totalScore = disciplines.stream()
                 .mapToDouble(discipline -> allDisciplineScore.get(discipline)).sum();
     }
@@ -35,7 +37,7 @@ public class Student {
         return averageScore;
     }
 
-    private void setAverageScore() {
+    public void setAverageScore() {
         this.averageScore = totalScore / disciplines.size();
     }
 
@@ -47,11 +49,11 @@ public class Student {
         this.allDisciplineScore = allDisciplineScore;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -63,13 +65,17 @@ public class Student {
         this.name = name;
     }
 
-    public String introduce() {
+    public String getSingleStudentScore() {
         String scores = disciplines.stream()
                 .map(discipline -> remove0AferDecimalPoint(allDisciplineScore.get(discipline)))
                 .collect(Collectors.joining("|"));
         String averageScoreStr = remove0AferDecimalPoint(averageScore);
         String totalScoreStr = remove0AferDecimalPoint(totalScore);
         return name + "|" + scores + "|" + averageScoreStr + "|" + totalScoreStr;
+    }
+
+    public String getDisciplineNames() {
+        return String.join("|", disciplines);
     }
 
     private String remove0AferDecimalPoint(Double totalScore) {

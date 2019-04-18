@@ -121,3 +121,9 @@
 4. [Git 参考手册](http://gitref.org/zh/index.html)
 5. [Junit](http://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions)
 6. [Mockito](http://site.mockito.org/)
+
+## 测试用例
+
+1. 张三, 1, 数学: 75, 语文: 95, 英语: 80, 编程: 80
+2. 李四, 2, 数学: 85, 语文: 80, 英语: 70, 编程: 90
+3. 王五, 3, 数学: 80, 语文: 80, 英语: 80, 编程: 80
